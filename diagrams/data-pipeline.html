@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VLTG education data pipeline</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f7f8fa; color: #1a202c;
+         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  .wrap { width: 1120px; padding: 40px 44px 48px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: #5b6472; font-size: 14px; margin: 0 0 30px; max-width: 820px; line-height: 1.5; }
+  .row { display: flex; align-items: stretch; gap: 0; }
+  .step { flex: 1; border: 1.5px solid #d5dce6; border-radius: 10px; background: #fff; padding: 14px 14px 16px;
+          box-shadow: 0 1px 2px rgba(20,30,50,.05); display: flex; flex-direction: column; }
+  .step .k { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #a0aab8; font-weight: 700; }
+  .step .t { font-size: 14px; font-weight: 650; margin: 5px 0 6px; line-height: 1.25; }
+  .step .d { font-size: 12px; color: #5b6472; line-height: 1.45; }
+  .step .tbl { margin-top: 9px; font-size: 11px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+               color: #2c5282; background: #eef4fb; border: 1px solid #d6e4f5; border-radius: 5px; padding: 4px 7px; align-self: flex-start; }
+  .arrow { display: flex; align-items: center; color: #c2ccd8; font-size: 24px; padding: 0 6px; }
+  .sink { margin-top: 22px; border: 1.5px dashed #cbd5e1; border-radius: 10px; background: #fbfcfe; padding: 16px 18px; }
+  .sink .k { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #a0aab8; font-weight: 700; }
+  .sink .t { font-size: 14px; font-weight: 650; margin: 5px 0 8px; }
+  .sink ul { margin: 0; padding-left: 18px; color: #45505f; font-size: 12.5px; line-height: 1.6; }
+  .updown { text-align: center; color: #c2ccd8; font-size: 22px; margin: 6px 0 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>How the learning data is collected</h1>
+  <p class="sub">Grading and analysis happen on the server, not in the browser, so the answer key never ships and the record can be trusted. Each stage writes to its own table. Only the education data is shown here; accounts and identity are out of scope.</p>
+
+  <div class="row">
+    <div class="step">
+      <div class="k">Step 1</div>
+      <div class="t">A person takes the test</div>
+      <div class="d">69 questions. Each answer autosaves as they go, so a closed tab resumes where they left off.</div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="step">
+      <div class="k">Step 2 &middot; captured + graded</div>
+      <div class="t">Every answer is recorded</div>
+      <div class="d">What they chose, whether it was right, seconds spent, and the skill it tests. Graded server-side.</div>
+      <div class="tbl">question_responses</div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="step">
+      <div class="k">Step 3 &middot; scored</div>
+      <div class="t">The attempt is scored</div>
+      <div class="d">Raw math and reading counts become a composite and a 1&ndash;9 stanine estimate.</div>
+      <div class="tbl">test_sessions</div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="step">
+      <div class="k">Step 4 &middot; analyzed + stored</div>
+      <div class="t">The diagnosis is computed</div>
+      <div class="d">Per-skill mastery, a prioritized study plan, and prerequisite gaps. Saved so the report loads instantly.</div>
+      <div class="tbl">diagnostic_reports</div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="step">
+      <div class="k">Step 5 &middot; feedback loop</div>
+      <div class="t">Did the advice land?</div>
+      <div class="d">When someone opens a recommended free resource, the click is logged against the skill gap it was for.</div>
+      <div class="tbl">resource_clicks</div>
+    </div>
+  </div>
+
+  <div class="updown">&darr;</div>
+
+  <div class="sink">
+    <div class="k">What the collected data is for</div>
+    <div class="t">A first-party learning dataset, growing with every attempt</div>
+    <ul>
+      <li><b>Calibration.</b> Real score distributions sharpen the 1&ndash;9 estimate over time, since the official norming tables are not public.</li>
+      <li><b>Curriculum signal.</b> Which skills are hardest across all applicants, and which prerequisites are most often the real blocker.</li>
+      <li><b>Did it work.</b> Resource clicks by skill gap show whether the diagnosis actually changes what people go study, which points to where original material is worth building.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VLTG test screen</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F4F1EC; padding: 40px;
+         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  .card { max-width: 620px; margin: 0 auto; border: 2px solid #111827; background: #fff; box-shadow: 7px 7px 0 0 #111827; }
+  .chrome { display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #111827; background: #F4F1EC; padding: 10px 16px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .chrome .label { margin-left: 8px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #6b7280; }
+  .bar { display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #111827; padding: 12px 24px; }
+  .pill { background: #1E3A5F; color: #fff; padding: 4px 10px; font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+  .prog { font-size: 12px; font-weight: 700; color: #4b5563; margin-left: 12px; }
+  .timer { font-size: 14px; font-weight: 700; color: #111827; font-variant-numeric: tabular-nums; }
+  .q { padding: 24px 24px 0; font-size: 18px; font-weight: 700; line-height: 1.6; color: #111827; }
+  .q i { font-style: italic; }
+  .opts { padding: 20px 24px; display: flex; flex-direction: column; gap: 10px; }
+  .opt { display: flex; align-items: center; gap: 12px; border: 2px solid #cbd5e1; padding: 10px 16px; }
+  .opt.sel { border-color: #f59e0b; background: #fffbeb; }
+  .opt .ltr { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; background: #f1f5f9; color: #4b5563; }
+  .opt.sel .ltr { background: #f59e0b; color: #111827; }
+  .opt .val { font-size: 16px; font-weight: 500; color: #111827; }
+  .foot { display: flex; align-items: center; justify-content: space-between; border-top: 2px solid #111827; padding: 12px 24px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .foot .back { color: #6b7280; } .foot .next { color: #1E3A5F; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="chrome">
+      <span class="dot" style="background:#f87171"></span>
+      <span class="dot" style="background:#fbbf24"></span>
+      <span class="dot" style="background:#34d399"></span>
+      <span class="label">Taking the test</span>
+    </div>
+    <div class="bar">
+      <div style="display:flex;align-items:center;">
+        <span class="pill">Math</span><span class="prog">Question 12 of 69</span>
+      </div>
+      <span class="timer">18:42</span>
+    </div>
+    <div class="q">Solve for <i>x</i>: &nbsp;5<i>x</i> &minus; 3 = 2<i>x</i> + 12</div>
+    <div class="opts">
+      <div class="opt"><span class="ltr">A</span><span class="val">3</span></div>
+      <div class="opt sel"><span class="ltr">B</span><span class="val">5</span></div>
+      <div class="opt"><span class="ltr">C</span><span class="val">9</span></div>
+      <div class="opt"><span class="ltr">D</span><span class="val">15</span></div>
+    </div>
+    <div class="foot"><span class="back">&larr; Back</span><span class="next">Next &rarr;</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VLTG results</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F4F1EC; padding: 40px;
+         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  .card { max-width: 640px; margin: 0 auto; border: 2px solid #111827; background: #fff; box-shadow: 7px 7px 0 0 #111827; }
+  .chrome { display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #111827; background: #F4F1EC; padding: 10px 16px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .chrome .label { margin-left: 8px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #6b7280; }
+  .hero { display: grid; grid-template-columns: auto 1fr; }
+  .score { background: #1E3A5F; padding: 32px 40px; text-align: center; }
+  .score .n { font-size: 72px; font-weight: 800; line-height: 1; color: #fbbf24; }
+  .score .u { margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #cbd5e1; }
+  .score .msg { margin-top: 16px; font-size: 16px; font-weight: 700; color: #fff; }
+  .score .goal { margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fcd34d; }
+  .cells { display: flex; flex-direction: column; border-left: 2px solid #111827; }
+  .cell { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+  .cell + .cell { border-top: 2px solid #111827; }
+  .cell .lbl { font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #4b5563; }
+  .cell .frac { margin-top: 4px; font-size: 24px; font-weight: 800; color: #111827; }
+  .cell .pct { font-size: 14px; color: #4b5563; }
+  .band { border-top: 2px solid #111827; padding: 16px 24px; }
+  .band .h { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .sq { width: 12px; height: 12px; }
+  .band .h span { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .band p { margin: 0; font-size: 14px; line-height: 1.5; color: #374151; }
+  .plan-h { border-left: 4px solid; background: #F4F1EC; padding: 10px 24px; }
+  .plan-h.a { border-color: #10b981; border-top: 2px solid #111827; }
+  .plan-h.b { border-color: #ef4444; border-top: 2px solid #111827; }
+  .plan-h span { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .plan-h.a span { color: #047857; } .plan-h.b span { color: #b91c1c; }
+  .plan-b { padding: 16px 24px; }
+  .plan-b .t { font-size: 16px; font-weight: 700; color: #111827; }
+  .plan-b .d { margin-top: 6px; font-size: 14px; line-height: 1.5; color: #374151; }
+  .plan-b .link { margin-top: 10px; display: inline-block; font-size: 14px; font-weight: 700; color: #1E3A5F; text-decoration: underline; text-decoration-color: #f59e0b; text-underline-offset: 2px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="chrome">
+      <span class="dot" style="background:#f87171"></span>
+      <span class="dot" style="background:#fbbf24"></span>
+      <span class="dot" style="background:#34d399"></span>
+      <span class="label">Your results</span>
+    </div>
+    <div class="hero">
+      <div class="score">
+        <div class="n">6</div>
+        <div class="u">out of 9 &middot; stanine</div>
+        <div class="msg">You're in qualifying range.</div>
+        <div class="goal">Goal: 7 &middot; 1 point to go</div>
+      </div>
+      <div class="cells">
+        <div class="cell"><div class="lbl">Math</div><div class="frac">21/33</div><div class="pct">64%</div></div>
+        <div class="cell"><div class="lbl">Reading</div><div class="frac">28/36</div><div class="pct">78%</div></div>
+      </div>
+    </div>
+    <div class="band">
+      <div class="h"><span class="sq" style="background:#10b981"></span><span style="color:#047857">Already solid</span></div>
+      <p>You're already strong on <b>Basic Arithmetic, Order of Operations, Detail Retrieval</b>. No need to spend time there.</p>
+    </div>
+    <div class="band">
+      <div class="h"><span style="color:#1E3A5F">Coach note</span></div>
+      <p>You scored a 6, which clears the qualifying bar. Your goal is a 7, so you're one point short. Your biggest gaps are in linear equations and polynomials, so start there to close it.</p>
+    </div>
+    <div class="plan-h a"><span>01 &middot; Quick wins</span></div>
+    <div class="plan-b">
+      <div class="t">Fractions &amp; Rational Numbers</div>
+      <div class="d">Already at 67%. A little targeted practice tips this over.</div>
+      <span class="link">Study this: Fractions (Math Is Fun)</span>
+    </div>
+    <div class="plan-h b"><span>02 &middot; Fix the root first</span></div>
+    <div class="plan-b">
+      <div class="t">Linear Equations</div>
+      <div class="d">At 60%. Gaps in the basics underneath are holding this back, so start there.</div>
+      <span class="link">Study this: Solving equations &amp; inequalities (Khan Academy)</span>
+    </div>
+  </div>
+</body>
+</html>

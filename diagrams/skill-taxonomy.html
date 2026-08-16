@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VLTG skill taxonomy</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f7f8fa; color: #1a202c;
+         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  .wrap { width: 1120px; padding: 40px 44px 48px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: #5b6472; font-size: 14px; margin: 0 0 28px; }
+  .legend { display: flex; gap: 20px; font-size: 12px; color: #5b6472; margin-bottom: 26px; }
+  .dot { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+  .section-label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #8a94a6;
+                   font-weight: 700; margin: 26px 0 12px; }
+  .flow { display: flex; align-items: stretch; gap: 0; }
+  .tier { display: flex; flex-direction: column; gap: 12px; justify-content: center; min-width: 158px; }
+  .tier-head { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #a0aab8;
+               font-weight: 700; text-align: center; margin-bottom: 4px; }
+  .arrow { display: flex; align-items: center; color: #c2ccd8; font-size: 22px; padding: 0 8px; }
+  .node { border: 1.5px solid; border-radius: 8px; padding: 9px 11px; background: #fff;
+          box-shadow: 0 1px 2px rgba(20,30,50,.05); }
+  .node .name { font-size: 13px; font-weight: 650; line-height: 1.25; }
+  .node .needs { font-size: 10.5px; color: #8a94a6; margin-top: 3px; }
+  .math .node { border-color: #b9d0ec; } .math .node .name { color: #1c4e80; }
+  .read .node { border-color: #bfe0cf; } .read .node .name { color: #1f6b46; }
+  .math .tier-head { color: #6f97c4; } .read .tier-head { color: #5aa37f; }
+  .foot { margin-top: 30px; font-size: 12px; color: #5b6472; max-width: 760px; line-height: 1.55; }
+  code { background: #eef1f5; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Skill taxonomy and prerequisite structure</h1>
+  <p class="sub">Every exam question is tagged to one of these skills. Skills are ordered left to right by what they build on, so the diagnostic can say "fix the root before the branch."</p>
+  <div class="legend">
+    <span><span class="dot" style="background:#b9d0ec"></span>Math skills</span>
+    <span><span class="dot" style="background:#bfe0cf"></span>Reading skills</span>
+    <span>Arrows point from foundational skills to the skills that depend on them.</span>
+  </div>
+
+  <div class="section-label">Math (12 skills)</div>
+  <div class="flow math">
+    <div class="tier">
+      <div class="tier-head">Foundations</div>
+      <div class="node"><div class="name">Basic Arithmetic</div></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="tier">
+      <div class="tier-head">Builds on foundations</div>
+      <div class="node"><div class="name">Fractions &amp; Rational Numbers</div><div class="needs">builds on Arithmetic</div></div>
+      <div class="node"><div class="name">Order of Operations</div><div class="needs">builds on Arithmetic</div></div>
+      <div class="node"><div class="name">Number Sequences &amp; Patterns</div><div class="needs">builds on Arithmetic</div></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="tier">
+      <div class="tier-head">Intermediate</div>
+      <div class="node"><div class="name">Plugging Values into Expressions</div><div class="needs">Arithmetic + Order of Operations</div></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="tier">
+      <div class="tier-head">Core algebra</div>
+      <div class="node"><div class="name">Linear Equations</div><div class="needs">Arithmetic, Order of Ops, Substitution</div></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="tier">
+      <div class="tier-head">Depends on linear equations</div>
+      <div class="node"><div class="name">Inequalities</div></div>
+      <div class="node"><div class="name">Systems of Equations</div></div>
+      <div class="node"><div class="name">Graph Interpretation</div></div>
+      <div class="node"><div class="name">Polynomials &amp; Manipulation</div></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="tier">
+      <div class="tier-head">Advanced</div>
+      <div class="node"><div class="name">Factoring</div><div class="needs">Polynomials + Fractions</div></div>
+      <div class="node"><div class="name">Quadratic Equations</div><div class="needs">builds on Factoring</div></div>
+    </div>
+  </div>
+
+  <div class="section-label">Reading (5 skills)</div>
+  <div class="flow read">
+    <div class="tier">
+      <div class="tier-head">Foundations</div>
+      <div class="node"><div class="name">Vocabulary in Context</div></div>
+      <div class="node"><div class="name">Detail Retrieval</div></div>
+      <div class="node"><div class="name">Main Idea</div></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="tier">
+      <div class="tier-head">Builds on foundations</div>
+      <div class="node"><div class="name">Inference</div><div class="needs">Main Idea + Detail Retrieval</div></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="tier">
+      <div class="tier-head">Advanced</div>
+      <div class="node"><div class="name">Author's Purpose &amp; Tone</div><div class="needs">Main Idea + Inference</div></div>
+    </div>
+  </div>
+
+  <p class="foot">The depth of a skill sets how the study plan is sequenced. If someone is weak on Linear Equations <em>and</em> on the Arithmetic underneath it, the plan sends them to the foundation first, because fixing the root often lifts everything above it.</p>
+</div>
+</body>
+</html>
